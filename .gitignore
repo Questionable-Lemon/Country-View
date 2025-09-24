@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Backend Junk
+*.pyc
+__pycache__/
+.venv/
