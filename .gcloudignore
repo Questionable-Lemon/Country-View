@@ -1,3 +1,9 @@
+# Git and Build Files
+.git/
+.gitignore
+.gcloudignore
+.pre-commit-config.yaml
+
 # Local Stuff
 local_development/
 
