@@ -5,19 +5,24 @@ interface StateDataProps {
   path: string;
   click: Function;
   name: string;
+  style: object;
 }
 
-const StateData: React.FC<StateDataProps> = ({ id, path, click, name }) => {
+const StateData: React.FC<StateDataProps> = ({
+  id,
+  path,
+  click,
+  name,
+  style,
+}) => {
   return (
     <path
+      key={name}
+      className="statePath"
       id={id}
       d={path}
       onClick={() => click(name)}
-      style={{ cursor: "pointer" }}
-      fill="#b3b3b3ff"
-      stroke="#000000ff"
-      strokeWidth="2"
-      fillRule="evenodd"
+      style={style}
     />
   );
 };
