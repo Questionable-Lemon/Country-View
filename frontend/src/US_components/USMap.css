@@ -1,0 +1,11 @@
+.statePath {
+  stroke-width: 1.5;
+  cursor: pointer;
+  stroke: #000000ff;
+}
+
+.statePath:hover {
+  fill: var(--hover-fill) !important;
+  stroke-width: 5;
+  stroke: #7c7c7cff;
+}

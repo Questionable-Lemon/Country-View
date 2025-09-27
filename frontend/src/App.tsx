@@ -4,7 +4,9 @@ import USMap from "./US_components/USMap";
 function App() {
   return (
     <>
-      <USMap></USMap>
+      <div>
+        <USMap></USMap>
+      </div>
     </>
   );
 }
