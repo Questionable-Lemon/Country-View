@@ -2,6 +2,7 @@
   stroke-width: 1.5;
   cursor: pointer;
   stroke: #000000ff;
+  float: "right";
 }
 
 .statePath:hover {

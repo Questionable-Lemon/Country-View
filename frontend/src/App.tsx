@@ -1,12 +1,15 @@
 import "./App.css";
-import USMap from "./US_components/USMap";
+import PageLayout from "./UI/PageLayout.tsx";
+import SlidingPanel from "react-sliding-side-panel";
+import USMap from "./US_components/USMap.tsx";
 
 function App() {
   return (
     <>
-      <div>
-        <USMap></USMap>
-      </div>
+      <PageLayout>
+        <SlidingPanel type="left" isOpen={false} size={30} children={null} />
+        <USMap setStateClicked={() => {}} />
+      </PageLayout>
     </>
   );
 }
