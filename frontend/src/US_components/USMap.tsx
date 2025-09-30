@@ -14,7 +14,7 @@ const USMap: React.FC<USMapProps> = ({ setStateClicked }) => {
   const [viewBox, setViewBox] = useState(initialViewBox);
   const [targetViewBox, setTargetViewbox] = useState(initialViewBox);
 
-  const animateViewBox = (target: string, duration = 800) => {
+  const animateViewBox = (target: string, duration = 1000) => {
     setTargetViewbox(target);
     if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
@@ -51,17 +51,23 @@ const USMap: React.FC<USMapProps> = ({ setStateClicked }) => {
     let newViewBox = `${bounds["x_min"] - (bounds["x_max"] - bounds["x_min"]) / 2} ${bounds["y_min"] - (bounds["y_max"] - bounds["y_min"]) / 2} ${(bounds["x_max"] - bounds["x_min"]) * 2} ${(bounds["y_max"] - bounds["y_min"]) * 2}`;
     if (newViewBox == targetViewBox) {
       newViewBox = initialViewBox;
+      setStateClicked(false);
+    } else {
+      setStateClicked(true);
     }
     animateViewBox(newViewBox);
   };
 
   const getStateColorLogic = (stateName: string) => {
+    // if majority of reps are repub, return red
+    // if majority are dem return blue
+    // otherwise return purple
     return { base: "#8f0000ff", hover: "#da0000ff" };
   };
 
   return (
-    <div className="relative z-10">
-      <svg width="4000" height="2600" viewBox={viewBox}>
+    <div className="z-1 flex items-center w-full">
+      <svg className="w-3000 h-[100vh] flex " viewBox={viewBox}>
         {state_data.map((state) => {
           const colors = getStateColorLogic(state.name);
 
@@ -73,7 +79,6 @@ const USMap: React.FC<USMapProps> = ({ setStateClicked }) => {
               path={state.path}
               click={() => {
                 handleZoom(state.bounds);
-                setStateClicked((value) => !value);
               }}
               style={{
                 fill: colors.base,
