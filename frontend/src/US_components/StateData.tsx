@@ -21,7 +21,7 @@ const StateData: React.FC<StateDataProps> = ({
       className="statePath"
       id={id}
       d={path}
-      onClick={() => click(name)}
+      onClick={() => click()}
       style={style}
     />
   );
