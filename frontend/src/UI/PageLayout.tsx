@@ -9,14 +9,14 @@ interface PageLayoutProps {
 
 const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
   const [isStateClicked, setStateClicked] = useState(
-    JSON.parse(localStorage.getItem("isStateClicked") || "") || false,
+    JSON.parse(localStorage.getItem("isStateClicked") || "false") || false,
   ); // JSON.parse cannot take null values so check for key: "" instead
   useEffect(() => {
     localStorage.setItem("isStateClicked", isStateClicked.toString());
   }, [isStateClicked]);
 
   return (
-    <div className="pageLayout z-0 w-[100vw] bg-linear-to-t from-zinc-800 to-red-950">
+    <div className="pageLayout z-0 w-screen bg-linear-to-t from-zinc-800 to-red-950">
       <div>
         {React.Children.map(children, (child) => {
           if (!React.isValidElement(child)) {

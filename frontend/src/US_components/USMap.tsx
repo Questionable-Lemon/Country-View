@@ -1,4 +1,4 @@
-import state_data from "../assets/state_data.json";
+import state_data from "../../public/state_data.json";
 import StateData from "./StateData.tsx";
 import "./USMap.css";
 import { useRef, useState, useEffect } from "react";
@@ -77,7 +77,7 @@ const USMap: React.FC<USMapProps> = ({ setStateClicked }) => {
     animateViewBox(newViewBox);
   };
 
-  const getStateColorLogic = (stateName: string) => {
+  const getStateColorLogic = () => {
     // if majority of reps are repub, return red
     // if majority are dem return blue
     // otherwise return purple
@@ -89,14 +89,14 @@ const USMap: React.FC<USMapProps> = ({ setStateClicked }) => {
 
   return (
     <>
-      <div className="w-[100vw] h-[100vh]">
-        <p className="absolute z-3 top-10 inset-x-0 text-[100px] text-center text-zinc-300 font-sans font-bold">
+      <div className="w-screen h-screen">
+        <p className="absolute z-3 top-10 inset-x-0 text-2xl md:text-4xl lg:text-6xl text-center text-zinc-300 font-sans font-bold">
           {selectedName}
         </p>
         <div className="z-1 flex items-center w-full">
-          <svg className="w-3000 h-[100vh] flex " viewBox={viewBox}>
+          <svg className="w-screen h-screen flex " viewBox={viewBox}>
             {state_data.map((state) => {
-              const colors = getStateColorLogic(state.name);
+              const colors = getStateColorLogic();
 
               return (
                 <StateData
