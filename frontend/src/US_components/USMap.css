@@ -6,6 +6,11 @@
 
 .statePath:hover {
   fill: var(--hover-fill) !important;
-  stroke-width: 5;
-  stroke: #7c7c7cff;
+  stroke-width: 2;
+  stroke: rgb(75, 63, 63);
+}
+
+.USMap {
+  width: 100vw;
+  height: 100vh;
 }

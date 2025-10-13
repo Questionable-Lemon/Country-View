@@ -1,12 +1,15 @@
 import "./App.css";
-import USMap from "./US_components/USMap";
+import PageLayout from "./UI/PageLayout.tsx";
+import SideBar from "./UI/SideBar.tsx";
+import USMap from "./US_components/USMap.tsx";
 
 function App() {
   return (
     <>
-      <div>
-        <USMap></USMap>
-      </div>
+      <PageLayout>
+        <SideBar isOpen={false} />
+        <USMap setStateClicked={() => {}} />
+      </PageLayout>
     </>
   );
 }
